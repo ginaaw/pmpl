@@ -7,12 +7,15 @@ def home_page(request):
 		komentar = 'yey, waktunya berlibur'
 	elif Item.objects.count() < 5:
 		komentar = 'sibuk tapi santai'
-	else:
+	elif Item.objects.count >= 5:
 		komentar = 'oh tidak'
+
 	if request.method == 'POST':
 		Item.objects.create(text=request.POST['item_text'])
-		return redirect('/')
-		
+		return redirect('/lists/the-only-list-in-the-world/')
+	return render(request, 'home.html')	
+
+def view_list(request):
 	items = Item.objects.all()
-	return render(request, 'home.html', {'items' : items, 'komentar' : komentar})
+	return render(request, 'list.html', {'items' : items})
 		

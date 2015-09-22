@@ -49,12 +49,12 @@ class NewVIsitorTest(LiveServerTestCase):
 		# enters "Use peacock feathers to make a fly" (Edith is is very)
 		# methodical)
 		inputbox = self.browser.find_element_by_id('id_new_item')
-		inputbox.send_keys('Use peacock fetahers to make a fly')
+		inputbox.send_keys('Use peacock feathers to make a fly')
 		inputbox.send_keys(Keys.ENTER)
 
 		# The page updates again, and now shows both items on her lists
-		self.check_for_row_in_list_table('2: Use peacock fetahers to make a fly')
-		self.check_for_row_in_list_table('1: Buy peacok feathers')
+		self.check_for_row_in_list_table('2: Use peacock feathers to make a fly')
+		self.check_for_row_in_list_table('1: Buy peacock feathers')
 
 		# NOw a new user, Francis, comes along to the site.
 
@@ -73,7 +73,7 @@ class NewVIsitorTest(LiveServerTestCase):
 		# is less interesting than Edith ...
 		inputbox = self.browser.find_element_by_id('id_new_item')
 		inputbox.send_keys('Buy milk')
-		inputbox_send_keys(Keys.ENTER)
+		inputbox.send_keys(Keys.ENTER)
 
 		# Francis gets his own unique URL
 		francis_list_url = self.browser.current_url

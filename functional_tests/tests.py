@@ -3,7 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import unittest
 
-class NewVIsitorTest(LiveServerTestCase):
+class NewVisitorTest(LiveServerTestCase):
 	
 	def setUp(self):
 		self.browser = webdriver.Firefox()
@@ -81,7 +81,7 @@ class NewVIsitorTest(LiveServerTestCase):
 		self.assertNotEqual(francis_list_url, edith_list_url)
 
 		#Again, there is no trace of Edith's list
-		page_text = self.brwser.find_element_by_tag_name('body').text
+		page_text = self.browser.find_element_by_tag_name('body').text
 		self.assertNotIn('Buy peacock feathers', page_text)
 		self.assertIn('Buy milk', page_text)
 	#	self.fail('Finish the test!')

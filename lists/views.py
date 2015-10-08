@@ -23,9 +23,9 @@ def view_list(request, list_id):
 	items = Item.objects.filter(list=list_)
 	if Item.objects.filter(list_id=list_id).count() == 0 :
 		komentar= 'yey, waktunya berlibur'	
-	elif Item.objects.count() < 5:
+	elif Item.objects.filter(list_id=list_id).count() < 5:
 		komentar = 'sibuk tapi santai'
-	else:
+	elif Item.objects.filter(list_id=list_id).count() >=5:
 		komentar = 'oh tidak'
 
 	return render(request, 'list.html', {'list' : list_, 'komentar' : komentar})

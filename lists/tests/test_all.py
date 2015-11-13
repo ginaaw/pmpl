@@ -66,8 +66,7 @@ class HomePageTest(TestCase):
 		Item.objects.create(text='itemey 1', list=list_)		
 
 		request = HttpRequest()
-		response = self.client.get('/lists/%d' % (list_.id,))	
-
+		response =  self.client.get('/lists/%d/' % (list_.id,))
 		self.assertTrue(response, self.assertLess(Item.objects.count(),5))
 		self.assertIn('sibuk tapi santai', response.content.decode())
 
@@ -81,8 +80,7 @@ class HomePageTest(TestCase):
 		Item.objects.create(text='itemey 6', list=list_)
 
 		request = HttpRequest()
-		response = self.client.get('/lists/%d' % (list_.id,))	
-
+		response = self.client.get('/lists/%d/' % (list_.id,))
 		self.assertTrue(response, self.assertGreater(Item.objects.count(),5))
 		self.assertIn('oh tidak', response.content.decode())
 

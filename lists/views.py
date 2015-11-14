@@ -30,7 +30,7 @@ def view_list(request, list_id):
 	list_ = List.objects.get(id=list_id)
 	error = None
 	
-	items = Item.objects.filter(list=list_)
+	#items = Item.objects.filter(list=list_)
 	
 	if Item.objects.filter(list_id=list_id).count() == 0 :
 		komentar= 'yey, waktunya berlibur'	
@@ -49,5 +49,5 @@ def view_list(request, list_id):
 		except ValidationError:
 			error = "You can't have an empty list item"
 	
-	return render(request, 'list.html', {'list' : list_, 'komentar' : komentar, 'error': error})
+	return render(request, 'list.html', {'list' : list_, 'error': error, 'komentar' : komentar})
 

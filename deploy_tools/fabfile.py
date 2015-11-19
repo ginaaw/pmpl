@@ -23,7 +23,7 @@ def _get_latest_source(source_folder):
 	if exists(source_folder + '/.git'):
 		run('cd %s && git fetch' % (source_folder,))
 	else:
-		run('git clone -b chapter8 %s %s' % (REPO_URL, source_folder))
+		run('git clone -b chapter10 %s %s' % (REPO_URL, source_folder))
 	current_commit = local("git log -n 1 --format=%H", capture=True)
 
 	run('cd %s && git reset HEAD %s' % (source_folder, current_commit))
